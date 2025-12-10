@@ -19,6 +19,20 @@ exports.createTransaction = async (req, res) => {
       return res.status(400).json({ message: 'Exchange rate not available' });
 
     const amountTo = Number(amountFrom) / rateUsed;
+
+    if (type === 'sell' && wallet.balance[formCurrency] < amountFrom) {
+      return res.status(400).json({ message: 'Insufficient balance' });
+    }
+
+    if (type === 'buy') {
+      wallet.balance[formCurrency] -= Number(amountFrom);
+      wallet.balance[toCurrency] = (wallet.balance[toCurrency] || 0) + amountTo;
+    } else if (type === 'sell') {
+      wallet.balance[formCurrency] -= Number(amountFrom);
+      wallet.balance[toCurrency] = (wallet.balance[toCurrency] || 0) + amountTo;
+    }
+
+    await wallet.save();
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
