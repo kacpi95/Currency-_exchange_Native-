@@ -58,3 +58,18 @@ exports.getHistory = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getTransactionById = async (req, res) => {
+  try {
+    const transaction = await Transaction.find({
+      _id: req.params.id,
+      userId: req.user.userId,
+    });
+    if (!transaction)
+      return res.status(404).json({ message: 'Transaction not found' });
+
+    res.json(transaction);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
