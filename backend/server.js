@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/User.routes');
 const walletRoutes = require('./routes/Wallet.routes');
+const transactionRoutes = require('./routes/Transaction.routes');
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/api/user', userRoutes);
 app.use('/api/wallet', walletRoutes);
+app.use('/api/transaction', transactionRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL)
