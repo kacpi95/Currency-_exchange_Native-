@@ -45,7 +45,15 @@ exports.createTransaction = async (req, res) => {
     });
 
     res.json({ message: 'Transaction successful', transaction, wallet });
-    
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.getHistory = async (req, res) => {
+  try {
+    const transaction = await Transaction.find({ userId: req.user.userId });
+    res.json(transaction);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
