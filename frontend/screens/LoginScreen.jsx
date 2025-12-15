@@ -2,7 +2,13 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import API from '../api/api';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const { login } = useContext(AuthContext);
@@ -21,6 +27,7 @@ export default function LoginScreen({ navigation }) {
       setLoading(true);
       const res = await API.post('/login', { email, password });
       login(res.data.user, res.data.token);
+      navigation.replace('Home');
     } catch (err) {
       console.log(err.response?.data || err.message);
       Alert.alert(
