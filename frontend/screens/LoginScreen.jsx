@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import API from '../api/api';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const { login } = useContext(AuthContext);
 
   const [email, setEmail] = useState('');
@@ -30,5 +32,39 @@ export default function LoginScreen() {
     }
   };
 
-  return;
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Login:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Email'
+        keyboardType='email-address'
+        autoCapitalize='none'
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder='Password'
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handleLogin}
+        disabled={loading}
+      >
+        <Text style={styles.buttonText}>{loading ? 'loading' : 'log in'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonText}
+        onPress={() => navigation.navigate('Register')}
+      >
+        <Text style={styles.link}>Don't have an account? Register</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({});
