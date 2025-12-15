@@ -67,4 +67,43 @@ export default function LoginScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#e8f7f2',
+  },
+  title: {
+    marginBottom: 20,
+    fontWeight: '700',
+    fontSize: 28,
+    color: '#05668d',
+  },
+  input: {
+    width: '100%',
+    marginBottom: 15,
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 6,
+    borderColor: '#a3d2ca',
+    backgroundColor: '#fff',
+  },
+  button: {
+    width: '100%',
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 6,
+    backgroundColor: '#028090',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  link: {
+    marginTop: 15,
+    color: '#05668d',
+  },
+});
