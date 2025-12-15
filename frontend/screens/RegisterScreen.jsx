@@ -76,4 +76,51 @@ export default function RegisterScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#e8f7f2',
+  },
+
+  title: {
+    marginBottom: 24,
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#05668d',
+  },
+
+  input: {
+    width: '100%',
+    marginBottom: 15,
+    padding: 12,
+    borderWidth: 1,
+    borderRadius: 8,
+    fontSize: 16,
+    borderColor: '#a3d2ca',
+    backgroundColor: '#ffffff',
+  },
+
+  button: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 10,
+    padding: 15,
+    borderRadius: 8,
+    backgroundColor: '#028090',
+  },
+
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+
+  link: {
+    marginTop: 18,
+    fontSize: 14,
+    color: '#05668d',
+  },
+});
