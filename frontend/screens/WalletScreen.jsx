@@ -29,15 +29,32 @@ export default function WalletScreen() {
     fetchWallet();
   }, []);
   if (loading || !wallet) {
-    return <ActivityIndicator size='large' />;
+    return (
+      <SafeAreaView style={styles.container}>
+        <ActivityIndicator size='large' color='#028090' />
+      </SafeAreaView>
+    );
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Your wallet</Text>
+
       <View style={styles.cardContainer}>
-        <Text style={styles.card}>PLN: {wallet.balance.PLN}</Text>
-        <Text style={styles.card}>USD: {wallet.balance.USD}</Text>
-        <Text style={styles.card}>EUR: {wallet.balance.EUR}</Text>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>PLN</Text>
+          <Text style={styles.cardBalance}>{wallet.balance.PLN}</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>USD</Text>
+          <Text style={styles.cardBalance}>{wallet.balance.USD}</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>EUR</Text>
+          <Text style={styles.cardBalance}>{wallet.balance.EUR}</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
