@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import axios from 'axios';
+import WalletApi from '../api/wallet';
 import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -12,7 +12,7 @@ export default function WalletScreen() {
   useEffect(() => {
     const fetchWallet = async () => {
       try {
-        const res = await axios.get('/api/wallet', {
+        const res = await WalletApi.get('/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
