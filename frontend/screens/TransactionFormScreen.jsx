@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import {
   Alert,
@@ -12,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TransactionFormScreen({ route }) {
   const { token } = useContext(AuthContext);
-  const [fetchWallet] = route.params;
+  const fetchWallet = route?.params?.fetchWallet ?? (() => {});
 
   const [fromCurrency, setFromCurrency] = useState('PLN');
   const [toCurrency, setToCurrency] = useState('USD');
@@ -28,7 +29,7 @@ export default function TransactionFormScreen({ route }) {
     try {
       const res = await TransactionApi.post(
         '/',
-        { type, fromCurrency, toCurrency, amountFrom: Number(amountFrom) },
+        { type, fromCurrency, toCurrency, amountFrom },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       Alert.alert(`Success, Transaction completed`);
@@ -39,54 +40,53 @@ export default function TransactionFormScreen({ route }) {
       setLoading(false);
     }
   };
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Make Transaction</Text>
+
+      <Text style={styles.subtitle}>Type:</Text>
+      <TouchableOpacity
+        style={styles.button}
+        title='Buy'
+        onPress={() => setType('buy')}
+        color={type === 'buy' ? 'green' : 'grey'}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        title='Sell'
+        onPress={() => setType('sell')}
+        color={type === 'sell' ? 'red' : 'grey'}
+      />
+
+      <Text style={styles.subtitle}>From Currency:</Text>
+      <TextInput
+        style={styles.input}
+        value={fromCurrency}
+        onChangeText={setFromCurrency}
+      />
+
+      <Text style={styles.subtitle}>To Currency:</Text>
+      <TextInput
+        style={styles.input}
+        value={toCurrency}
+        onChangeText={setToCurrency}
+      />
+
+      <Text style={styles.subtitle}>Amount:</Text>
+      <TextInput
+        style={styles.input}
+        value={amountFrom}
+        onChangeText={setAmountFrom}
+        keyboardType='numeric'
+      />
+
+      <TouchableOpacity
+        title={loading ? 'Processing...' : 'Submit'}
+        onPress={handleTransaction}
+        disabled={loading}
+      />
+    </SafeAreaView>
+  );
 }
-
-return (
-  <SafeAreaView style={styles.container}>
-    <Text style={styles.title}>Make Transaction</Text>
-
-    <Text style={styles.subtitle}>Type:</Text>
-    <TouchableOpacity
-      style={styles.button}
-      title='Buy'
-      onPress={() => setType('buy')}
-      color={type === 'buy' ? 'green' : 'grey'}
-    />
-    <TouchableOpacity
-      style={styles.button}
-      title='Sell'
-      onPress={() => setType('sell')}
-      color={type === 'sell' ? 'red' : 'grey'}
-    />
-
-    <Text style={styles.subtitle}>From Currency:</Text>
-    <TextInput
-      style={styles.input}
-      value={fromCurrency}
-      onChangeText={setFromCurrency}
-    />
-
-    <Text style={styles.subtitle}>To Currency:</Text>
-    <TextInput
-      style={styles.input}
-      value={toCurrency}
-      onChangeText={setToCurrency}
-    />
-
-    <Text style={styles.subtitle}>Amount:</Text>
-    <TextInput
-      style={styles.input}
-      value={amountFrom}
-      onChangeText={setAmountFrom}
-      keyboardType='numeric'
-    />
-
-    <TouchableOpacity
-      title={loading ? 'Processing...' : 'Submit'}
-      onPress={handleTransaction}
-      disabled={loading}
-    />
-  </SafeAreaView>
-);
 
 const styles = StyleSheet.create({});

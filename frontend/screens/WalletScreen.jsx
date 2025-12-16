@@ -1,10 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import WalletApi from '../api/wallet';
-import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function WalletScreen() {
+export default function WalletScreen({ navigation }) {
   const { token } = useContext(AuthContext);
   const [wallet, setWallet] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -56,6 +62,19 @@ export default function WalletScreen() {
           <Text style={styles.cardBalance}>{wallet.balance.EUR}</Text>
         </View>
       </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Transaction')}
+      >
+        <Text style={styles.buttonText}>Make Transaction</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('History')}
+      >
+        <Text style={styles.buttonText}>Transaction History</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -108,5 +127,21 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     color: '#05668d',
+  },
+  button: {
+    width: '100%',
+    maxWidth: 300,
+    marginTop: 15,
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    backgroundColor: '#028090',
+  },
+
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+    color: '#ffffff',
   },
 });
