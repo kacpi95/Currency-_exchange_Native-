@@ -4,10 +4,10 @@ import axios from 'axios';
 import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function HomeScreen() {
+export default function WalletScreen() {
   const { token } = useContext(AuthContext);
   const [wallet, setWallet] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchWallet = async () => {
@@ -19,7 +19,7 @@ export default function HomeScreen() {
         });
         setWallet(res.data);
       } catch (err) {
-        console.log(object);
+        console.log(err);
         console.log('Wallet error:', err.response?.data || err.message);
       } finally {
         setLoading(false);
