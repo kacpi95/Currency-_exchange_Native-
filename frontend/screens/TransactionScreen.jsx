@@ -18,6 +18,7 @@ export default function TransactionScreen() {
 
   useEffect(() => {
     const fetchTransaction = async () => {
+      setLoading(true);
       try {
         const res = await TransactionApi.get('/history', {
           headers: {
