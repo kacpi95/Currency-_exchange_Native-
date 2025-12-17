@@ -75,6 +75,12 @@ export default function WalletScreen({ navigation }) {
       >
         <Text style={styles.buttonText}>Transaction History</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Deposit', { fetchWallet })}
+      >
+        <Text style={styles.buttonText}>Deposit PLN</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

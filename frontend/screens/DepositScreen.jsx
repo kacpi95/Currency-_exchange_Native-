@@ -4,24 +4,29 @@ import WalletApi from '../api/wallet';
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function DepositScreen({ navigation }) {
+export default function DepositScreen({ navigation, route }) {
   const { token } = useContext(AuthContext);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const { fetchWallet } = route?.params ?? {};
+
   const handleDeposit = async () => {
-    setLoading(true);
+    if (!amount) return;
+
     try {
-      const res = await WalletApi.get(
+      setLoading(true);
+      const res = await WalletApi.post(
         '/deposit',
         { amount, currency: 'PLN' },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      fetchWallet?.();
       navigation.goBack();
     } catch (err) {
       console.log('Error', err.response?.data?.message || err.message);
     } finally {
-      setLoading(fasle);
+      setLoading(false);
     }
   };
 
@@ -51,4 +56,60 @@ export default function DepositScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#e8f7f2',
+  },
+
+  title: {
+    marginBottom: 24,
+    fontSize: 26,
+    fontWeight: '700',
+    textAlign: 'center',
+    color: '#05668d',
+  },
+
+  subtitle: {
+    marginBottom: 8,
+    fontSize: 14,
+    textAlign: 'center',
+    fontWeight: '600',
+    color: '#028090',
+  },
+
+  input: {
+    width: '100%',
+    maxWidth: 300,
+    padding: 12,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderRadius: 8,
+    textAlign: 'center',
+    fontSize: 16,
+    borderColor: '#a3d2ca',
+    backgroundColor: '#fff',
+  },
+
+  submitButton: {
+    width: '100%',
+    maxWidth: 300,
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    backgroundColor: '#028090',
+  },
+
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+
+  disabled: {
+    opacity: 0.6,
+  },
+});
