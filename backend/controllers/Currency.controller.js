@@ -11,3 +11,17 @@ exports.getCurrentCurrency = async (req, res) => {
   }
   res.json(result);
 };
+
+exports.getOldCurrency = async (req, res) => {
+  const { code, start, end } = req.params;
+
+  try {
+    const url = `http://api.nbp.pl/api/exchangerates/rates/A/${code}/${start}/${end}/`;
+    const { data } = await axios.get(url, {
+      headers: { Accept: 'application/json' },
+    });
+    res.json(data.res);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
