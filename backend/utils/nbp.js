@@ -15,12 +15,7 @@ async function fetchNBP(table = 'A', code = 'EUR') {
     `https://api.nbp.pl/api/exchangerates/rates/${table}/${code}/?format=json`
   );
 
-  if (!res.ok) {
-    throw new Error(`NBP error: ${res.status}`);
-  }
-
-  const json = await res.json();
-  const rate = json.rates[0];
+  const rate = res.data.rates[0];
 
   const data = {
     code: code.toUpperCase(),

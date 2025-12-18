@@ -74,4 +74,108 @@ export default function HistoricalRateScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    backgroundColor: '#e8f7f2',
+  },
+
+  title: {
+    marginBottom: 20,
+    fontSize: 26,
+    fontWeight: '700',
+    textAlign: 'center',
+    color: '#05668d',
+  },
+
+  input: {
+    width: '100%',
+    maxWidth: 300,
+    padding: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderRadius: 8,
+    textAlign: 'center',
+    backgroundColor: '#fff',
+    borderColor: '#a3d2ca',
+  },
+
+  fetchButton: {
+    width: '100%',
+    maxWidth: 300,
+    paddingVertical: 14,
+    marginBottom: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    backgroundColor: '#028090',
+  },
+
+  fetchText: {
+    fontWeight: '600',
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#fff',
+  },
+
+  listContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+
+  card: {
+    width: '100%',
+    maxWidth: 300,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    borderWidth: 1,
+    alignItems: 'center',
+    marginBottom: 10,
+    backgroundColor: '#fff',
+    borderColor: '#a3d2ca',
+  },
+
+  cardDate: {
+    marginBottom: 4,
+    fontSize: 14,
+    color: '#028090',
+  },
+
+  cardRate: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#05668d',
+  },
+
+  currencyRow: {
+    marginBottom: 12,
+    gap: 12,
+    flexDirection: 'row',
+  },
+
+  currencyButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#a3d2ca',
+    backgroundColor: '#fff',
+  },
+
+  currencyActive: {
+    backgroundColor: '#028090',
+    borderColor: '#028090',
+  },
+
+  currencyText: {
+    fontWeight: '600',
+    color: '#05668d',
+    textAlign: 'center',
+  },
+
+  currencyTextActive: {
+    color: '#fff',
+  },
+});
