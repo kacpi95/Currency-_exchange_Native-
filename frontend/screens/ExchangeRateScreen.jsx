@@ -1,6 +1,7 @@
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CommonStyles from '../styles/common';
+import Spacing from '../styles/spacing';
 
 export default function ExchangeRateScreen({ navigation }) {
   return (
