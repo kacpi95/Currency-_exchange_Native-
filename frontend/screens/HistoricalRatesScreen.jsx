@@ -12,6 +12,7 @@ import {
 import CurrencySelector from '../components/CurrencySelector';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function HistoricalRateScreen() {
   const [rates, setRates] = useState([]);
@@ -83,36 +84,36 @@ const styles = StyleSheet.create({
   },
 
   customCard: {
-    marginBottom: 10,
+    marginBottom: Spacing.md,
     paddingHorizontal: 100,
   },
 
   customButton: {
-    marginBottom: 20,
+    marginBottom: Spacing.xl,
   },
 
   cardDate: {
-    marginBottom: 4,
-    fontSize: 14,
+    marginBottom: Spacing.xs,
+    fontSize: Spacing.lg,
     color: Colors.textSecondary,
   },
 
   cardRate: {
-    fontSize: 18,
+    fontSize: Spacing.xl,
     fontWeight: '700',
     color: Colors.textPrimary,
   },
 
   currencyRow: {
-    marginBottom: 12,
-    gap: 12,
+    marginBottom: Spacing.md,
+    gap: Spacing.md,
     flexDirection: 'row',
   },
 
   currencyButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.xl,
+    borderRadius: Spacing.sm,
     borderWidth: 1,
     borderColor: Colors.borderDefault,
     backgroundColor: Colors.backgroundWhite,

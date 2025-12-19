@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import CurrencySelector from '../components/CurrencySelector';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function TransactionFormScreen({ route }) {
   const { token } = useContext(AuthContext);
@@ -109,15 +110,15 @@ export default function TransactionFormScreen({ route }) {
 
 const styles = StyleSheet.create({
   typeRow: {
-    marginBottom: 10,
+    marginBottom: Spacing.md,
     flexDirection: 'row',
-    gap: 12,
+    gap: Spacing.md,
   },
 
   typeButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 8,
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.xxxl,
+    borderRadius: Spacing.sm,
     borderWidth: 1,
     borderColor: Colors.borderDefault,
     backgroundColor: Colors.backgroundWhite,

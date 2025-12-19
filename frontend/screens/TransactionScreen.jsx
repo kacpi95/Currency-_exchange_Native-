@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function TransactionScreen() {
   const [loading, setLoading] = useState(true);
@@ -90,17 +91,17 @@ export default function TransactionScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: Spacing.xl,
     backgroundColor: Colors.backgroundDefault,
   },
 
   customCard: {
-    marginBottom: 15,
+    marginBottom: Spacing.lg,
   },
 
   type: {
-    marginBottom: 6,
-    fontSize: 16,
+    marginBottom: Spacing.sm,
+    fontSize: Spacing.lg,
     textAlign: 'center',
     fontWeight: '700',
   },
@@ -118,22 +119,22 @@ const styles = StyleSheet.create({
   },
 
   amount: {
-    marginBottom: 4,
-    fontSize: 16,
+    marginBottom: Spacing.xs,
+    fontSize: Spacing.lg,
     fontWeight: '500',
     textAlign: 'center',
   },
 
   rate: {
-    marginBottom: 4,
+    marginBottom: Spacing.xs,
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: Spacing.lg,
     color: Colors.textDisabled,
   },
 
   date: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: Spacing.md,
     color: Colors.textDisabled,
   },
 });

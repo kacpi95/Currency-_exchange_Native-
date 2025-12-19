@@ -1,18 +1,19 @@
 import { StyleSheet } from 'react-native';
 import Colors from './colors';
+import Spacing from './spacing';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: Spacing.xl,
     backgroundColor: Colors.backgroundDefault,
   },
 
   title: {
-    marginBottom: 24,
-    fontSize: 28,
+    marginBottom: Spacing.xxl,
+    fontSize: Spacing.xxxl,
     fontWeight: '700',
     color: Colors.textPrimary,
   },
@@ -20,11 +21,11 @@ export default StyleSheet.create({
   input: {
     width: '100%',
     maxWidth: 300,
-    marginBottom: 15,
-    padding: 12,
+    marginBottom: Spacing.lg,
+    padding: Spacing.md,
     borderWidth: 1,
-    borderRadius: 8,
-    fontSize: 16,
+    borderRadius: Spacing.sm,
+    fontSize: Spacing.lg,
     borderColor: Colors.borderDefault,
     backgroundColor: Colors.backgroundWhite,
   },
@@ -33,36 +34,36 @@ export default StyleSheet.create({
     width: '100%',
     maxWidth: 300,
     alignItems: 'center',
-    marginTop: 10,
-    padding: 15,
-    borderRadius: 8,
+    marginTop: Spacing.md,
+    padding: Spacing.lg,
+    borderRadius: Spacing.sm,
     backgroundColor: Colors.textSecondary,
   },
 
   buttonText: {
-    fontSize: 16,
+    fontSize: Spacing.lg,
     fontWeight: '600',
     color: Colors.backgroundWhite,
   },
 
   link: {
-    marginTop: 18,
-    fontSize: 14,
+    marginTop: Spacing.lg,
+    fontSize: Spacing.lg,
     color: Colors.textPrimary,
   },
 
   subtitle: {
-    marginBottom: 15,
-    marginTop: 10,
+    marginBottom: Spacing.lg,
+    marginTop: Spacing.sm,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: Spacing.lg,
     color: Colors.textSecondary,
   },
 
   cardContainer: {
     width: '100%',
-    gap: 15,
-    marginBottom: 20,
+    gap: Spacing.lg,
+    marginBottom: Spacing.xl,
     alignItems: 'center',
   },
 
@@ -70,8 +71,8 @@ export default StyleSheet.create({
     width: '100%',
     maxWidth: 360,
     alignItems: 'center',
-    padding: 20,
-    borderRadius: 14,
+    padding: Spacing.xl,
+    borderRadius: Spacing.lg,
     borderWidth: 1,
     borderColor: Colors.borderDefault,
     backgroundColor: Colors.backgroundWhite,
@@ -80,7 +81,7 @@ export default StyleSheet.create({
   cardTitle: {
     marginBottom: 6,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: Spacing.xl,
     fontWeight: '600',
     color: Colors.textPrimary,
   },

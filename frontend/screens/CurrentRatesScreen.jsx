@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, StyleSheet, Text } from 'react-native';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function CurrentRatesScreen() {
   const [rates, setRates] = useState([]);
@@ -43,21 +44,21 @@ export default function CurrentRatesScreen() {
 
 const styles = StyleSheet.create({
   currency: {
-    marginBottom: 6,
-    fontSize: 18,
+    marginBottom: Spacing.sm,
+    fontSize: Spacing.xl,
     fontWeight: '600',
     color: Colors.textSecondary,
   },
 
   rate: {
-    marginBottom: 4,
-    fontSize: 22,
+    marginBottom: Spacing.xs,
+    fontSize: Spacing.xxl,
     fontWeight: '700',
     color: Colors.textPrimary,
   },
 
   date: {
-    fontSize: 12,
+    fontSize: Spacing.md,
     color: Colors.textDisabled,
   },
 });

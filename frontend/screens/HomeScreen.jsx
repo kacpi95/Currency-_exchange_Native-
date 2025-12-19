@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigation } from '@react-navigation/native';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function HomeScreen() {
   const { user, logout } = useContext(AuthContext);
@@ -56,12 +57,12 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   actions: {
     width: '100%',
-    gap: 15,
+    gap: Spacing.lg,
     alignItems: 'center',
   },
 
   customCardTitle: {
-    fontSize: 14,
+    fontSize: Spacing.lg,
   },
 
   logoutCard: {

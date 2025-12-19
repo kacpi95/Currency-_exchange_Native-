@@ -1,6 +1,7 @@
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import CommonStyles from '../styles/common';
 import Colors from '../styles/colors';
+import Spacing from '../styles/spacing';
 
 export default function CurrencySelector({ label, value, onSelect }) {
   const currencies = ['PLN', 'USD', 'EUR'];
@@ -36,14 +37,14 @@ export default function CurrencySelector({ label, value, onSelect }) {
 const styles = StyleSheet.create({
   currencyRow: {
     flexDirection: 'row',
-    gap: 12,
-    marginBottom: 10,
+    gap: Spacing.md,
+    marginBottom: Spacing.md,
   },
 
   currencyButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.xl,
+    borderRadius: Spacing.sm,
     borderWidth: 1,
     borderColor: Colors.borderDefault,
     backgroundColor: Colors.backgroundWhite,
