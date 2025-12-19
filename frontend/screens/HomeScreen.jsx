@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigation } from '@react-navigation/native';
+import CommonStyles from '../styles/common';
 
 export default function HomeScreen() {
   const { user, logout } = useContext(AuthContext);
@@ -12,8 +13,8 @@ export default function HomeScreen() {
     logout();
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Welcome, {user.name || user.email}</Text>
+    <SafeAreaView style={CommonStyles.container}>
+      <Text style={CommonStyles.title}>Welcome, {user.name || user.email}</Text>
 
       <Text style={styles.subtitle}>Quick actions</Text>
 
@@ -46,22 +47,6 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#e8f7f2',
-  },
-
-  title: {
-    marginBottom: 6,
-    textAlign: 'center',
-    fontSize: 26,
-    fontWeight: '700',
-    color: '#05668d',
-  },
-
   subtitle: {
     marginBottom: 24,
     textAlign: 'center',

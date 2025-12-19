@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import CurrencySelector from '../components/CurrencySelector';
+import CommonStyles from '../styles/common';
 
 export default function HistoricalRateScreen() {
   const [rates, setRates] = useState([]);
@@ -32,8 +33,8 @@ export default function HistoricalRateScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Exchange Rates</Text>
+    <SafeAreaView style={CommonStyles.container}>
+      <Text style={CommonStyles.title}>Exchange Rates</Text>
 
       <CurrencySelector
         label='Currency'
@@ -42,21 +43,21 @@ export default function HistoricalRateScreen() {
       />
 
       <TextInput
-        style={styles.input}
+        style={CommonStyles.input}
         placeholder='Start YYYY-MM-DD'
         value={start}
         onChangeText={setStart}
       />
 
       <TextInput
-        style={styles.input}
+        style={CommonStyles.input}
         placeholder='End YYYY-MM-DD'
         value={end}
         onChangeText={setEnd}
       />
 
-      <TouchableOpacity style={styles.fetchButton} onPress={fetchRates}>
-        <Text style={styles.fetchText}>Fetch</Text>
+      <TouchableOpacity style={CommonStyles.button} onPress={fetchRates}>
+        <Text style={CommonStyles.buttonText}>Fetch</Text>
       </TouchableOpacity>
 
       <FlatList
@@ -75,50 +76,6 @@ export default function HistoricalRateScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    alignItems: 'center',
-    backgroundColor: '#e8f7f2',
-  },
-
-  title: {
-    marginBottom: 20,
-    fontSize: 26,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: '#05668d',
-  },
-
-  input: {
-    width: '100%',
-    maxWidth: 300,
-    padding: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderRadius: 8,
-    textAlign: 'center',
-    backgroundColor: '#fff',
-    borderColor: '#a3d2ca',
-  },
-
-  fetchButton: {
-    width: '100%',
-    maxWidth: 300,
-    paddingVertical: 14,
-    marginBottom: 20,
-    borderRadius: 8,
-    alignItems: 'center',
-    backgroundColor: '#028090',
-  },
-
-  fetchText: {
-    fontWeight: '600',
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#fff',
-  },
-
   listContainer: {
     width: '100%',
     alignItems: 'center',

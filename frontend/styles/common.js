@@ -19,6 +19,7 @@ export default StyleSheet.create({
 
   input: {
     width: '100%',
+    maxWidth: 300,
     marginBottom: 15,
     padding: 12,
     borderWidth: 1,
@@ -30,6 +31,7 @@ export default StyleSheet.create({
 
   button: {
     width: '100%',
+    maxWidth: 300,
     alignItems: 'center',
     marginTop: 10,
     padding: 15,

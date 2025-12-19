@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
+import CommonStyles from '../styles/common';
 
 export default function WalletScreen({ navigation }) {
   const { token } = useContext(AuthContext);
@@ -44,15 +45,15 @@ export default function WalletScreen({ navigation }) {
 
   if (loading || !wallet) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={CommonStyles.container}>
         <ActivityIndicator size='large' color='#028090' />
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Your wallet</Text>
+    <SafeAreaView style={CommonStyles.container}>
+      <Text style={CommonStyles.title}>Your wallet</Text>
 
       <View style={styles.cardContainer}>
         <View style={styles.card}>
@@ -71,45 +72,29 @@ export default function WalletScreen({ navigation }) {
         </View>
       </View>
       <TouchableOpacity
-        style={styles.button}
+        style={CommonStyles.button}
         onPress={() => navigation.navigate('Transaction')}
       >
-        <Text style={styles.buttonText}>Make Transaction</Text>
+        <Text style={CommonStyles.buttonText}>Make Transaction</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.button}
+        style={CommonStyles.button}
         onPress={() => navigation.navigate('History')}
       >
-        <Text style={styles.buttonText}>Transaction History</Text>
+        <Text style={CommonStyles.buttonText}>Transaction History</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.button}
+        style={CommonStyles.button}
         onPress={() => navigation.navigate('Deposit')}
       >
-        <Text style={styles.buttonText}>Deposit PLN</Text>
+        <Text style={CommonStyles.buttonText}>Deposit PLN</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#e8f7f2',
-  },
-
-  title: {
-    marginBottom: 24,
-    textAlign: 'center',
-    fontSize: 26,
-    fontWeight: '700',
-    color: '#05668d',
-  },
-
   cardContainer: {
     width: '100%',
     gap: 15,
@@ -141,21 +126,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     color: '#05668d',
-  },
-  button: {
-    width: '100%',
-    maxWidth: 300,
-    marginTop: 15,
-    paddingVertical: 14,
-    borderRadius: 8,
-    alignItems: 'center',
-    backgroundColor: '#028090',
-  },
-
-  buttonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    textAlign: 'center',
-    color: '#ffffff',
   },
 });

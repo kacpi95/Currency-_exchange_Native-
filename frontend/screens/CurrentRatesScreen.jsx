@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import CurrentRatesApi from '../api/currentRates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, StyleSheet, Text } from 'react-native';
+import CommonStyles from '../styles/common';
 
 export default function CurrentRatesScreen() {
   const [rates, setRates] = useState([]);
@@ -23,8 +24,8 @@ export default function CurrentRatesScreen() {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Current Rates</Text>
+    <SafeAreaView style={CommonStyles.container}>
+      <Text style={CommonStyles.title}>Current Rates</Text>
 
       <View style={styles.cardContainer}>
         {rates.map((el) => (
@@ -40,21 +41,6 @@ export default function CurrentRatesScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    alignItems: 'center',
-    backgroundColor: '#e8f7f2',
-  },
-
-  title: {
-    marginBottom: 20,
-    fontSize: 26,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: '#05668d',
-  },
-
   cardContainer: {
     width: '100%',
     gap: 12,

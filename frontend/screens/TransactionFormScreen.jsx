@@ -12,6 +12,8 @@ import {
 import TransactionApi from '../api/transaction';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CurrencySelector from '../components/CurrencySelector';
+import CommonStyles from '../styles/common';
+import Colors from '../styles/colors';
 
 export default function TransactionFormScreen({ route }) {
   const { token } = useContext(AuthContext);
@@ -44,8 +46,8 @@ export default function TransactionFormScreen({ route }) {
     }
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Make Transaction</Text>
+    <SafeAreaView style={CommonStyles.container}>
+      <Text style={CommonStyles.title}>Make Transaction</Text>
 
       <Text style={styles.subtitle}>Type</Text>
 
@@ -86,18 +88,18 @@ export default function TransactionFormScreen({ route }) {
 
       <Text style={styles.subtitle}>Amount</Text>
       <TextInput
-        style={styles.input}
+        style={CommonStyles.input}
         value={amountFrom}
         onChangeText={setAmountFrom}
         keyboardType='numeric'
       />
 
       <TouchableOpacity
-        style={[styles.submitButton, loading && styles.disabled]}
+        style={[CommonStyles.button, loading && styles.disabled]}
         onPress={handleTransaction}
         disabled={loading}
       >
-        <Text style={styles.submitText}>
+        <Text style={CommonStyles.buttonText}>
           {loading ? 'Processing...' : 'Submit'}
         </Text>
       </TouchableOpacity>
@@ -106,22 +108,6 @@ export default function TransactionFormScreen({ route }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: '#e8f7f2',
-  },
-
-  title: {
-    marginBottom: 20,
-    fontSize: 26,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: '#05668d',
-  },
-
   subtitle: {
     marginBottom: 6,
     marginTop: 12,
@@ -147,11 +133,11 @@ const styles = StyleSheet.create({
   },
 
   buyActive: {
-    backgroundColor: '#028090',
+    backgroundColor: Colors.textSecondary,
   },
 
   sellActive: {
-    backgroundColor: '#c1121f',
+    backgroundColor: Colors.textError,
   },
 
   typeText: {
@@ -161,34 +147,7 @@ const styles = StyleSheet.create({
   },
 
   typeTextActive: {
-    color: '#fff',
-  },
-
-  input: {
-    width: '100%',
-    maxWidth: 300,
-    padding: 12,
-    borderWidth: 1,
-    borderRadius: 8,
-    textAlign: 'center',
-    backgroundColor: '#fff',
-    borderColor: '#a3d2ca',
-  },
-
-  submitButton: {
-    width: '100%',
-    marginTop: 20,
-    paddingVertical: 14,
-    maxWidth: 300,
-    borderRadius: 8,
-    alignItems: 'center',
-    backgroundColor: '#028090',
-  },
-
-  submitText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
+    color: Colors.backgroundWhite,
   },
 
   disabled: {

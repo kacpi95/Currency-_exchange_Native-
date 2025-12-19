@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native';
+import CommonStyles from '../styles/common';
 
 export default function TransactionScreen() {
   const [loading, setLoading] = useState(true);
@@ -39,14 +40,14 @@ export default function TransactionScreen() {
 
   if (loading)
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={CommonStyles.container}>
         <ActivityIndicator size='large' color='#028090' />
       </SafeAreaView>
     );
 
   if (!transactions.length)
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={CommonStyles.container}>
         <Text style={styles.emptyText}>No transactions yet</Text>
       </SafeAreaView>
     );
@@ -89,8 +90,6 @@ export default function TransactionScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    flexGrow: 1,
-    alignItems: 'center',
     backgroundColor: '#e8f7f2',
   },
 
