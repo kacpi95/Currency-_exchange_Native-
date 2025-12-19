@@ -10,6 +10,7 @@ import {
   FlatList,
 } from 'react-native';
 import CommonStyles from '../styles/common';
+import Colors from '../styles/colors';
 
 export default function TransactionScreen() {
   const [loading, setLoading] = useState(true);
@@ -41,19 +42,19 @@ export default function TransactionScreen() {
   if (loading)
     return (
       <SafeAreaView style={CommonStyles.container}>
-        <ActivityIndicator size='large' color='#028090' />
+        <ActivityIndicator size='large' color={Colors.textSecondary} />
       </SafeAreaView>
     );
 
   if (!transactions.length)
     return (
       <SafeAreaView style={CommonStyles.container}>
-        <Text style={styles.emptyText}>No transactions yet</Text>
+        <Text style={CommonStyles.title}>No transactions yet</Text>
       </SafeAreaView>
     );
 
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
+    <View style={[CommonStyles.card, styles.customCard]}>
       <Text
         style={[
           styles.type,
@@ -90,27 +91,11 @@ export default function TransactionScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#e8f7f2',
+    backgroundColor: Colors.backgroundDefault,
   },
 
-  emptyText: {
-    marginTop: 50,
-    fontSize: 18,
-    textAlign: 'center',
-    color: '#05668d',
-  },
-
-  card: {
-    width: '100%',
-    maxWidth: 360,
+  customCard: {
     marginBottom: 15,
-    borderRadius: 12,
-    borderWidth: 1,
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    borderColor: '#a3d2ca',
-    backgroundColor: '#ffffff',
   },
 
   type: {
@@ -120,9 +105,17 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 
-  buy: { color: '#028090' },
-  sell: { color: '#c1121f' },
-  deposit: { color: '#05668d' },
+  buy: {
+    color: Colors.textSecondary,
+  },
+
+  sell: {
+    color: Colors.textError,
+  },
+
+  deposit: {
+    color: Colors.textPrimary,
+  },
 
   amount: {
     marginBottom: 4,
@@ -135,12 +128,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     textAlign: 'center',
     fontSize: 14,
-    color: '#666',
+    color: Colors.textDisabled,
   },
 
   date: {
     textAlign: 'center',
     fontSize: 12,
-    color: '#999',
+    color: Colors.textDisabled,
   },
 });

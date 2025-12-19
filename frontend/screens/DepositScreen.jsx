@@ -33,7 +33,7 @@ export default function DepositScreen({ navigation }) {
     <SafeAreaView style={CommonStyles.container}>
       <Text style={CommonStyles.title}>Deposit PLN</Text>
 
-      <Text style={styles.subtitle}>Amount</Text>
+      <Text style={CommonStyles.subtitle}>Amount</Text>
       <TextInput
         style={[CommonStyles.input, styles.customInput]}
         keyboardType='numeric'
@@ -56,14 +56,6 @@ export default function DepositScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  subtitle: {
-    marginBottom: 8,
-    fontSize: 14,
-    textAlign: 'center',
-    fontWeight: '600',
-    color: '#028090',
-  },
-
   disabled: {
     opacity: 0.6,
   },

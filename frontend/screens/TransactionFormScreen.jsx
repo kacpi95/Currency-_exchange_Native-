@@ -49,7 +49,7 @@ export default function TransactionFormScreen({ route }) {
     <SafeAreaView style={CommonStyles.container}>
       <Text style={CommonStyles.title}>Make Transaction</Text>
 
-      <Text style={styles.subtitle}>Type</Text>
+      <Text style={CommonStyles.subtitle}>Type</Text>
 
       <View style={styles.typeRow}>
         <TouchableOpacity
@@ -86,7 +86,7 @@ export default function TransactionFormScreen({ route }) {
         onSelect={setToCurrency}
       />
 
-      <Text style={styles.subtitle}>Amount</Text>
+      <Text style={CommonStyles.subtitle}>Amount</Text>
       <TextInput
         style={CommonStyles.input}
         value={amountFrom}
@@ -108,15 +108,6 @@ export default function TransactionFormScreen({ route }) {
 }
 
 const styles = StyleSheet.create({
-  subtitle: {
-    marginBottom: 6,
-    marginTop: 12,
-    fontSize: 14,
-    fontWeight: '600',
-    textAlign: 'center',
-    color: '#028090',
-  },
-
   typeRow: {
     marginBottom: 10,
     flexDirection: 'row',
@@ -128,8 +119,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#a3d2ca',
-    backgroundColor: '#fff',
+    borderColor: Colors.borderDefault,
+    backgroundColor: Colors.backgroundWhite,
   },
 
   buyActive: {
@@ -142,8 +133,7 @@ const styles = StyleSheet.create({
 
   typeText: {
     fontWeight: '700',
-    textAlign: 'center',
-    color: '#05668d',
+    color: Colors.textPrimary,
   },
 
   typeTextActive: {

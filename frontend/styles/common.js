@@ -50,4 +50,38 @@ export default StyleSheet.create({
     fontSize: 14,
     color: Colors.textPrimary,
   },
+
+  subtitle: {
+    marginBottom: 15,
+    marginTop: 10,
+    textAlign: 'center',
+    fontSize: 16,
+    color: Colors.textSecondary,
+  },
+
+  cardContainer: {
+    width: '100%',
+    gap: 15,
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+
+  card: {
+    width: '100%',
+    maxWidth: 360,
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: Colors.borderDefault,
+    backgroundColor: Colors.backgroundWhite,
+  },
+
+  cardTitle: {
+    marginBottom: 6,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.textPrimary,
+  },
 });

@@ -1,13 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import WalletApi from '../api/wallet';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import CommonStyles from '../styles/common';
@@ -55,20 +49,20 @@ export default function WalletScreen({ navigation }) {
     <SafeAreaView style={CommonStyles.container}>
       <Text style={CommonStyles.title}>Your wallet</Text>
 
-      <View style={styles.cardContainer}>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>PLN</Text>
-          <Text style={styles.cardBalance}>{wallet.balance.PLN}</Text>
+      <View style={CommonStyles.cardContainer}>
+        <View style={CommonStyles.card}>
+          <Text style={CommonStyles.cardTitle}>PLN</Text>
+          <Text style={CommonStyles.cardTitle}>{wallet.balance.PLN}</Text>
         </View>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>USD</Text>
-          <Text style={styles.cardBalance}>{wallet.balance.USD}</Text>
+        <View style={CommonStyles.card}>
+          <Text style={CommonStyles.cardTitle}>USD</Text>
+          <Text style={CommonStyles.cardTitle}>{wallet.balance.USD}</Text>
         </View>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>EUR</Text>
-          <Text style={styles.cardBalance}>{wallet.balance.EUR}</Text>
+        <View style={CommonStyles.card}>
+          <Text style={CommonStyles.cardTitle}>EUR</Text>
+          <Text style={CommonStyles.cardTitle}>{wallet.balance.EUR}</Text>
         </View>
       </View>
       <TouchableOpacity
@@ -93,38 +87,3 @@ export default function WalletScreen({ navigation }) {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  cardContainer: {
-    width: '100%',
-    gap: 15,
-    alignItems: 'center',
-  },
-
-  card: {
-    width: '100%',
-    maxWidth: 300,
-    paddingVertical: 20,
-    borderWidth: 1,
-    paddingHorizontal: 15,
-    borderRadius: 12,
-    alignItems: 'center',
-    borderColor: '#a3d2ca',
-    backgroundColor: '#ffffff',
-  },
-
-  cardTitle: {
-    marginBottom: 6,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#028090',
-  },
-
-  cardBalance: {
-    fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: '#05668d',
-  },
-});

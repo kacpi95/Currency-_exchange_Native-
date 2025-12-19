@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import CurrencySelector from '../components/CurrencySelector';
 import CommonStyles from '../styles/common';
+import Colors from '../styles/colors';
 
 export default function HistoricalRateScreen() {
   const [rates, setRates] = useState([]);
@@ -41,22 +42,22 @@ export default function HistoricalRateScreen() {
         value={currency}
         onSelect={setCurrency}
       />
-
       <TextInput
         style={CommonStyles.input}
         placeholder='Start YYYY-MM-DD'
         value={start}
         onChangeText={setStart}
       />
-
       <TextInput
         style={CommonStyles.input}
         placeholder='End YYYY-MM-DD'
         value={end}
         onChangeText={setEnd}
       />
-
-      <TouchableOpacity style={CommonStyles.button} onPress={fetchRates}>
+      <TouchableOpacity
+        style={[CommonStyles.button, styles.customButton]}
+        onPress={fetchRates}
+      >
         <Text style={CommonStyles.buttonText}>Fetch</Text>
       </TouchableOpacity>
 
@@ -65,7 +66,7 @@ export default function HistoricalRateScreen() {
         keyExtractor={(item) => item.effectiveDate}
         contentContainerStyle={styles.listContainer}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <View style={[CommonStyles.card, styles.customCard]}>
             <Text style={styles.cardDate}>{item.effectiveDate}</Text>
             <Text style={styles.cardRate}>{item.mid.toFixed(2)}</Text>
           </View>
@@ -81,29 +82,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  card: {
-    width: '100%',
-    maxWidth: 300,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 12,
-    borderWidth: 1,
-    alignItems: 'center',
+  customCard: {
     marginBottom: 10,
-    backgroundColor: '#fff',
-    borderColor: '#a3d2ca',
+    paddingHorizontal: 100,
+  },
+
+  customButton: {
+    marginBottom: 20,
   },
 
   cardDate: {
     marginBottom: 4,
     fontSize: 14,
-    color: '#028090',
+    color: Colors.textSecondary,
   },
 
   cardRate: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#05668d',
+    color: Colors.textPrimary,
   },
 
   currencyRow: {
@@ -117,22 +114,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#a3d2ca',
-    backgroundColor: '#fff',
+    borderColor: Colors.borderDefault,
+    backgroundColor: Colors.backgroundWhite,
   },
 
   currencyActive: {
-    backgroundColor: '#028090',
-    borderColor: '#028090',
+    backgroundColor: Colors.textSecondary,
+    borderColor: Colors.textSecondary,
   },
 
   currencyText: {
     fontWeight: '600',
-    color: '#05668d',
+    color: Colors.textPrimary,
     textAlign: 'center',
   },
 
   currencyTextActive: {
-    color: '#fff',
+    color: Colors.backgroundWhite,
   },
 });

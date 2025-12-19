@@ -1,11 +1,13 @@
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import CommonStyles from '../styles/common';
+import Colors from '../styles/colors';
 
 export default function CurrencySelector({ label, value, onSelect }) {
   const currencies = ['PLN', 'USD', 'EUR'];
 
   return (
     <>
-      <Text style={styles.subtitle}>{label}</Text>
+      <Text style={CommonStyles.subtitle}>{label}</Text>
       <View style={styles.currencyRow}>
         {currencies.map((cur) => (
           <TouchableOpacity
@@ -37,35 +39,27 @@ const styles = StyleSheet.create({
     gap: 12,
     marginBottom: 10,
   },
-  subtitle: {
-    marginBottom: 6,
-    marginTop: 12,
-    fontSize: 14,
-    textAlign: 'center',
-    fontWeight: '600',
-    color: '#028090',
-  },
 
   currencyButton: {
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#a3d2ca',
-    backgroundColor: '#fff',
+    borderColor: Colors.borderDefault,
+    backgroundColor: Colors.backgroundWhite,
   },
 
   currencyActive: {
-    backgroundColor: '#028090',
-    borderColor: '#028090',
+    backgroundColor: Colors.textSecondary,
+    borderColor: Colors.textSecondary,
   },
 
   currencyText: {
     fontWeight: '600',
-    color: '#05668d',
+    color: Colors.textPrimary,
   },
 
   currencyTextActive: {
-    color: '#fff',
+    color: Colors.backgroundWhite,
   },
 });

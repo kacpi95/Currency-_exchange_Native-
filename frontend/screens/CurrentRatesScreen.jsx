@@ -3,6 +3,7 @@ import CurrentRatesApi from '../api/currentRates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, StyleSheet, Text } from 'react-native';
 import CommonStyles from '../styles/common';
+import Colors from '../styles/colors';
 
 export default function CurrentRatesScreen() {
   const [rates, setRates] = useState([]);
@@ -27,9 +28,9 @@ export default function CurrentRatesScreen() {
     <SafeAreaView style={CommonStyles.container}>
       <Text style={CommonStyles.title}>Current Rates</Text>
 
-      <View style={styles.cardContainer}>
+      <View style={CommonStyles.cardContainer}>
         {rates.map((el) => (
-          <View key={el.code} style={styles.card}>
+          <View key={el.code} style={CommonStyles.card}>
             <Text style={styles.currency}>{el.code}</Text>
             <Text style={styles.rate}>{el.mid.toFixed(2)}</Text>
             <Text style={styles.date}>{el.date}</Text>
@@ -41,40 +42,22 @@ export default function CurrentRatesScreen() {
 }
 
 const styles = StyleSheet.create({
-  cardContainer: {
-    width: '100%',
-    gap: 12,
-    alignItems: 'center',
-  },
-
-  card: {
-    width: '100%',
-    maxWidth: 300,
-    borderRadius: 12,
-    borderWidth: 1,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    borderColor: '#a3d2ca',
-    backgroundColor: '#ffffff',
-  },
-
   currency: {
     marginBottom: 6,
     fontSize: 18,
     fontWeight: '600',
-    color: '#028090',
+    color: Colors.textSecondary,
   },
 
   rate: {
     marginBottom: 4,
     fontSize: 22,
     fontWeight: '700',
-    color: '#05668d',
+    color: Colors.textPrimary,
   },
 
   date: {
     fontSize: 12,
-    color: '#999',
+    color: Colors.textDisabled,
   },
 });
