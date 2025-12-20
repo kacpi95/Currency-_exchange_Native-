@@ -1,7 +1,13 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import WalletApi from '../api/wallet';
-import { ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
+import {
+  ActivityIndicator,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import CommonStyles from '../styles/common';
@@ -66,20 +72,13 @@ export default function WalletScreen({ navigation }) {
         </View>
       </View>
       <TouchableOpacity
-        style={CommonStyles.button}
+        style={[CommonStyles.button, styles.customButton]}
         onPress={() => navigation.navigate('MakeTransaction')}
       >
         <Text style={CommonStyles.buttonText}>Make Transaction</Text>
       </TouchableOpacity>
-
       <TouchableOpacity
-        style={CommonStyles.button}
-        onPress={() => navigation.navigate('TransactionHistory')}
-      >
-        <Text style={CommonStyles.buttonText}>Transaction History</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={CommonStyles.button}
+        style={[CommonStyles.button, styles.customButton]}
         onPress={() => navigation.navigate('Deposit')}
       >
         <Text style={CommonStyles.buttonText}>Deposit PLN</Text>
@@ -87,3 +86,9 @@ export default function WalletScreen({ navigation }) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  customButton: {
+    maxWidth: 360,
+  },
+});

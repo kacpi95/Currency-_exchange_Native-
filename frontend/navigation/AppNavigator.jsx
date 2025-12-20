@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -30,8 +29,8 @@ export default function AppNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: Colors.textSecondary,
-        tabBarInactiveTintColor: Colors.textDisabled,
+        tabBarActiveTintColor: Colors.backgroundDefault,
+        tabBarInactiveTintColor: Colors.textTertiary,
       })}
     >
       <Tab.Screen
