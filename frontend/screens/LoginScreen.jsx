@@ -2,7 +2,13 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import API from '../api/api';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import {
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  StyleSheet,
+} from 'react-native';
 import CommonStyles from '../styles/common';
 
 export default function LoginScreen({ navigation }) {
@@ -35,6 +41,11 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <SafeAreaView style={CommonStyles.container}>
+      <ImageBackground
+        source={require('../bgc-1.jpg')}
+        style={StyleSheet.absoluteFill}
+      />
+
       <Text style={CommonStyles.title}>Login</Text>
       <TextInput
         style={CommonStyles.input}
